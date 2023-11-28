@@ -45,13 +45,7 @@ kotlin {
     jvmToolchain(11)
 }
 
-tasks.jacocoTestReport {
-    reports {
-        xml.required = true
-        csv.required = true
-        html.required = true
-    }
-}
+
 
 tasks.test {
     finalizedBy(tasks.jacocoTestReport)
