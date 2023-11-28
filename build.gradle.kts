@@ -42,7 +42,7 @@ jacoco {
 }
 
 kotlin {
-    jvmToolchain(18)
+    jvmToolchain(11)
 }
 
 tasks.jacocoTestReport {
