@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_rahulkuma56_kotlin_standard_1703147767454-push-trigger-input-set
+  identifier: Build_rahulkuma56_kotlin_standard_1703147767454pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: autogen
+  pipeline:
+    identifier: Build_rahulkuma56_kotlin_standard_1703147767454
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
