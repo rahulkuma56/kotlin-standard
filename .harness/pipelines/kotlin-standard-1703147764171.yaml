@@ -1,0 +1,39 @@
+pipeline:
+  identifier: Build_rahulkuma56_kotlin_standard_1703147767454
+  name: Build kotlin-standard
+  orgIdentifier: default
+  projectIdentifier: autogen
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.rahulkkotlin
+        repoName: rahulkuma56/kotlin-standard
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: dockerbuild
+                  name: docker_build
+                  spec:
+                    image: plugins/docker
+                    settings:
+                      dry_run: "true"
+                      password: <+input>
+                      repo: hello/world
+                      tags: latest
+                      username: <+input>
+                  timeout: ""
+                  type: Plugin
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
