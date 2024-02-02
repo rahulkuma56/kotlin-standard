@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_kotlin_standard_1706848460765-push-trigger-input-set
+  identifier: Build_kotlin_standard_1706848460765pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: RahulTestProject
+  pipeline:
+    identifier: Build_kotlin_standard_1706848460765
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
