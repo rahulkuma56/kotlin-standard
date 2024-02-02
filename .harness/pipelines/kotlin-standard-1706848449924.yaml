@@ -1,0 +1,60 @@
+pipeline:
+  identifier: Build_kotlin_standard_1706848460765
+  name: Build kotlin-standard
+  orgIdentifier: default
+  projectIdentifier: RahulTestProject
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: rahulkuma56
+        repoName: kotlin-standard
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: echo
+                  name: echo
+                  spec:
+                    command: echo hello world
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: kotlinbuild
+                  name: kotlin_build
+                  spec:
+                    command: ./gradlew build
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: kotlintest
+                  name: kotlin_test
+                  spec:
+                    command: ./gradlew test
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: dockerbuild
+                  name: docker_build
+                  spec:
+                    image: plugins/docker
+                    settings:
+                      dry_run: "true"
+                      password: <+input>
+                      repo: hello/world
+                      tags: latest
+                      username: <+input>
+                  timeout: ""
+                  type: Plugin
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
